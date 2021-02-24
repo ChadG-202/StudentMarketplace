@@ -1,0 +1,12 @@
+/*Body------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 0;
+    scroll-behavior: smooth;
+}
