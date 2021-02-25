@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Logo.png"/>
+    <title>StudentMarket</title>
+</head>
+<body>
+    <div id="signup_page_wrapper">
+        <form autocomplete="off" action="signup.php" method="post" enctype="multipart/form-data">
+            <input type="text" autocomplete="off" placeholder="Forename" maxlength="32" pattern="[a-zA-Z]+$" 
+            title="Must have [Forename]" required name="Forename">
+            <input type="text" autocomplete="off" placeholder="Surname" maxlength="32" pattern="[a-zA-Z]+$" 
+            title="Must have [Surname]" required name="Surname">
+            <input type="date" autocomplete="off" placeholder="DOB" required name="DOB" pattern="">
+            <input type="text" autocomplete="off" placeholder="Address Line 1" maxlength="50" pattern="[0-9]+ [a-zA-Z]+ [a-zA-Z]+$" 
+            title="Must have [Address Line 1]" required name="AddressLine1">
+            <input type="text" autocomplete="off" placeholder="Address Line 2" maxlength="50" pattern="[a-zA-Z]+$" 
+            title="Must have [Address Line 2]" required name="AddressLine2">
+            <input type="text" autocomplete="off" placeholder="PostCode" maxlength="8" pattern="[a-zA-Z0-9]+ [a-zA-Z0-9]+$" 
+            title="Must have [Postcode]" required name="PostCode">
+            <input type="email" autocomplete="off" placeholder="E-mail" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+            title="Must fit format [characters@characters.domain]" required name="Email">
+            <input type="text" autocomplete="off" placeholder="Username" maxlength="32" pattern="[a-zA-Z0-9]+$" 
+            title="Must have [Username]" required name="Username">
+            <input type="text" autocomplete="off" placeholder="Password" maxlength="32" pattern="[a-zA-Z0-9]+$" 
+            title="Must have [Password]" required name="Password">
+            <input type="submit" name="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
