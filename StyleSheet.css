@@ -24,64 +24,193 @@ html, body {
 
 #index_page_wrapper #top_bar ul li a{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2vw;
+    font-size: 15px;
     text-decoration: none;
     color: black;
     transition: ease-in-out 0.25s;
+    cursor: pointer;
 }
 
 #index_page_wrapper #top_bar ul li a:hover{
     color: lightblue;
 }
 
-/*Form-------------------------------------------------------*/
-#signup_page_wrapper{
-    margin: 10% 20% 0 20%;
+/* Full-width input fields */
+#index_page_wrapper input[type=text], 
+#index_page_wrapper input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+#index_page_wrapper button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+#index_page_wrapper button:hover {
+    opacity: 0.8;
+}
+  
+/* Extra styles for the cancel button */
+#index_page_wrapper .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+  
+/* Center the image and position the close button */
+#index_page_wrapper .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+  
+#index_page_wrapper img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+  
+#index_page_wrapper .container {
+    padding: 16px;
+}
+  
+#index_page_wrapper span.psw {
+    float: right;
+    padding-top: 16px;
+}
+  
+/* The Modal (background) */
+#index_page_wrapper .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+  
+/* Modal Content/Box */
+#index_page_wrapper .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+  
+/* The Close Button (x) */
+#index_page_wrapper .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+  
+#index_page_wrapper .close:hover,
+#index_page_wrapper .close:focus {
+    color: red;
+    cursor: pointer;
+}
+  
+/* Add Zoom Animation */
+#index_page_wrapper .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+  
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
 }
 
-form{
+/*Form-------------------------------------------------------*/
+#signup_page_wrapper{
+    background-color: white;
+    margin: 5% 30% 0 30%;
+    padding: 0 0 5% 0;
+}
+
+#signup_page_wrapper h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+#signup_page_wrapper form{
     grid-row: 2/3;
     grid-column: 1/2;
     display: grid;
     grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="date"],
-form textarea{
+#signup_page_wrapper form input[type="text"],
+#signup_page_wrapper form input[type="email"],
+#signup_page_wrapper form input[type="date"],
+#signup_page_wrapper form textarea{
     background-color: #f2f2f2;
-    width: 90%;
+    width: 70%;
     height: 90%;
+    padding: 5px;
     margin: auto;
-    color: var(--black);
+    color: black;
     font-size: 1.2vw;
     border: 2px solid #ccc;
 }
 
-form input[type="text"]:valid,
-form input[type="email"]:valid,
-form input[type="date"]:valid,
-form textarea:valid{
+#signup_page_wrapper form input[type="text"]:valid,
+#signup_page_wrapper form input[type="email"]:valid,
+#signup_page_wrapper form input[type="date"]:valid,
+#signup_page_wrapper form textarea:valid{
     background-color: #6fbd6f86;
 }
 
-form input[type="submit"]{
+#signup_page_wrapper form input[type="submit"]{
     background-color: #a0bdc7;
     font-size: 1.3vw;
     width: 20%;
     height: 100%;
     border: 0;
     border-radius: 5px;
-    color: var(--white);
+    color: white;
     cursor: pointer;
-    margin: auto;
+    margin: 15px auto 0 auto;
     transition: ease-in-out 0.2s;
     -moz-transition: ease-in-out 0.2s;
     -webkit-transition: ease-in-out 0.2s;
 }
 
-form input[type="submit"]:hover{
+#signup_page_wrapper form input[type="submit"]:hover{
     background-color: #5d8694;
     transform: scale(0.98);
     -moz-transform: scale(0.98);

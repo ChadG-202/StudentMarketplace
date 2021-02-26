@@ -11,6 +11,7 @@
 </head>
 <body>
     <div id="signup_page_wrapper">
+        <h1>Sign Up</h1>
         <form autocomplete="off" action="signup.php" method="post" enctype="multipart/form-data">
             <input type="text" autocomplete="off" placeholder="Forename" maxlength="32" pattern="[a-zA-Z]+$" 
             title="Must have [Forename]" required name="Forename">
@@ -26,9 +27,9 @@
             <input type="email" autocomplete="off" placeholder="E-mail" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
             title="Must fit format [characters@characters.domain]" required name="Email">
             <input type="text" autocomplete="off" placeholder="Username" maxlength="32" pattern="[a-zA-Z0-9]+$" 
-            title="Must have [Username]" required name="Username">
+            title="Must have [Only numbers and characters]" required name="Username">
             <input type="text" autocomplete="off" placeholder="Password" maxlength="32" pattern="[a-zA-Z0-9]+$" 
-            title="Must have [Password]" required name="Password">
+            title="Must have [Only numbers and characters]" required name="Password">
             <input type="submit" name="submit" value="Send">
         </form>
     </div>
