@@ -22,12 +22,16 @@ html, body {
     margin-right: 10px;
 }
 
+#index_page_wrapper #top_bar ul li#UserTag{
+    float: left;
+}
+
 #index_page_wrapper #top_bar ul li a{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     text-decoration: none;
     color: black;
-    transition: ease-in-out 0.25s;
+    transition: ease-in-out 0.15s;
     cursor: pointer;
 }
 
