@@ -20,31 +20,53 @@ if (isset($_POST['upload'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="images/Logo.png"/>
-    <title>StudentMarket</title>
+    <link rel="shortcut icon" href="images/Logo8.png"/>
+    <title>Brighton Market</title>
 </head>
 <body>
     <div id="index_page_wrapper">
-      <div id="top_bar_wrapper">
-          <div id="top_bar">
-            <ul>
-              <li><a href="signup.html">Sign Up</a></li>
-              <li>/</li>
-              <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
-              <?php
-                while ($row = mysqli_fetch_array($sql)) {
-                  echo "<li id='UserTag'>Hello ".$row['CusFname']." ".$row['CusSname']."</li>";
-                }
-              ?>
-            </ul>
-          </div>
+      <div id="home_header">
+        <div id="top_bar_wrapper">
+            <div id="top_bar">
+              <ul>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li>/</li>
+                <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                <?php
+                  while ($row = mysqli_fetch_array($sql)) {
+                    echo "<li id='UserTag'>| Hello ".$row['CusFname']." ".$row['CusSname']." |</li>";
+                  }
+                ?>
+              </ul>
+            </div>
+        </div>
+        <div class="header_wrapper">
+          <header id="HomeHeader">
+            <div class="logo_wrapper">
+              <div class="logo_holder">
+                <div id="logo">BRIGHTON MARKET</div>
+              </div>
+            </div>
+            <nav>
+              <ul>
+                <li><a id="link1" href="index.php">Home</a></li>
+                <li><a id="link2" href="">Electronics</a></li>
+                <li><a id="link3" href="">Fashion</a></li>
+                <li><a id="link4" href="">Sports</a></li>
+                <li><a id="link5" href="">Furniture</a></li>
+                <li><a id="link6" href="" >Fashion</a></li>
+                <li><a id="link6" href="" >Sell</a></li>
+                <li><a id="basket" href=""><img src="https://img.icons8.com/material/96/000000/shopping-cart--v1.png"/></a></li>
+              </ul>
+            </nav>
+          </header>
+        </div>
       </div>
       <div id="id01" class="modal">
 
         <form class="modal-content animate" action="index.php" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="images/index_images/img_avatar.png" alt="Avatar" class="avatar">
           </div>
       
           <div class="container">
@@ -65,6 +87,17 @@ if (isset($_POST['upload'])) {
             <span class="psw">Forgot <a href="#">password?</a></span>
           </div>
         </form>
+      </div>
+      <div id="home_search_bar_wrapper">
+        <div id="search_img">
+          <img src="images/index_images/Main_image3.jpg" alt="">
+        </div>
+        <div id="search_bar">
+          <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+          </form>
+        </div>
       </div>
 
     </div>
