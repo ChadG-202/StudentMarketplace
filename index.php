@@ -34,7 +34,8 @@ if (isset($_POST['upload'])) {
                 <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
                 <?php
                   while ($row = mysqli_fetch_array($sql)) {
-                    echo "<li id='UserTag'>| Hello ".$row['CusFname']." ".$row['CusSname']." |</li>";
+                    echo "<li id='UserTag'> Hello ".$row['CusFname']." ".$row['CusSname']." </li>";
+                    $userID = $row['CusID'];
                   }
                 ?>
               </ul>
@@ -54,9 +55,25 @@ if (isset($_POST['upload'])) {
                 <li><a id="link3" href="">Fashion</a></li>
                 <li><a id="link4" href="">Sports</a></li>
                 <li><a id="link5" href="">Furniture</a></li>
-                <li><a id="link6" href="" >Fashion</a></li>
-                <li><a id="link6" href="" >Sell</a></li>
-                <li><a id="basket" href=""><img src="https://img.icons8.com/material/96/000000/shopping-cart--v1.png"/></a></li>
+                <li><a id="link6" href="" >Toys</a></li>
+                <li>
+                  <?php
+                    if($userID != null){
+                      echo "<a id='link6' href='sell.php' >Sell</a>";
+                    }else{
+                      echo "<a id='link6' href='' title='Login required!'>Sell</a>";
+                    }
+                  ?>
+                </li>
+                <li>
+                  <?php
+                    if($userID != null){
+                      echo "<a id='basket' href='basket.php'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                    }else{
+                      echo "<a id='basket' href='' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                    }
+                  ?>
+                </li>
               </ul>
             </nav>
           </header>
@@ -89,9 +106,6 @@ if (isset($_POST['upload'])) {
         </form>
       </div>
       <div id="home_search_bar_wrapper">
-        <div id="search_img">
-          <img src="images/index_images/Main_image3.jpg" alt="">
-        </div>
         <div id="search_bar">
           <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search">

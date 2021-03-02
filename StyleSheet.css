@@ -275,16 +275,12 @@ header .logo_wrapper .logo_holder #logo{
     display: grid;
     grid-template-columns: 0.7fr 1fr 0.4fr 0.7fr;
     grid-template-rows: 0.4fr 0.2fr 0.4fr;
-    z-index: 98;
-}
-
-#home_search_bar_wrapper #search_img{
-    grid-row: 1/-1;
-    grid-column: 1/-1;
-}
-
-#home_search_bar_wrapper #search_img img{
-    width: 100%;
+    background-image: url("images/index_images/Main_image2.jpg");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #home_search_bar_wrapper #search_bar{
@@ -308,13 +304,14 @@ header .logo_wrapper .logo_holder #logo{
 /*Sign up Form-------------------------------------------------------*/
 #signup_page_wrapper{
     background-color: white;
-    margin: 5% 30% 0 30%;
-    padding: 0 0 5% 0;
+    margin: 4% 30% 0 30%;
+    padding: 1% 0 5% 0;
 }
 
 #signup_page_wrapper h1{
     font-size: 40px;
     text-align: center;
+    color: #3665f3;
 }
 
 #signup_page_wrapper form{
