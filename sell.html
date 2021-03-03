@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Logo.png"/>
+    <title>Sell</title>
+</head>
+<body>
+    <div id="sell_page_wrapper">
+        <h1>Sell A Item</h1>
+        <form autocomplete="off" action="sell.php" method="post" enctype="multipart/form-data">
+            <input type="text" autocomplete="off" placeholder="Product Name" maxlength="100" pattern="[A-Za-z0-9_ ]{1,100}" 
+            title="Must have [Product Name]" required name="ProductName">
+            <select name="ProductCondition" id="PCondition" required>
+                <option value="New">NEW</option>
+                <option value="SlightDamage">SLIGHT DAMAGE</option>
+                <option value="Broken">BROKEN</option>
+            </select>
+            <textarea name="ProductDescription" id="PDescription" cols="30" rows="10" minlength="50" maxlength="500" required></textarea>
+            <input type="file" name="ProductImage">
+            <input type="number" step="any" name="ProductCost" id="PCost" required placeholder="Sell Price">
+            <select name="DeliveryOption" id="DOption" required>
+                <option value="Delivery">DELIVERY</option>
+                <option value="Collection">COLLECTION</option>
+            </select>
+            <input type="submit" name="submit" value="Send">
+        </form>
+    </div>
+</body>

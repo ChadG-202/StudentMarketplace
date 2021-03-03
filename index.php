@@ -59,7 +59,7 @@ if (isset($_POST['upload'])) {
                 <li>
                   <?php
                     if($userID != null){
-                      echo "<a id='link6' href='sell.php' >Sell</a>";
+                      echo "<a id='link6' href='sell.html' >Sell</a>";
                     }else{
                       echo "<a id='link6' href='' title='Login required!'>Sell</a>";
                     }

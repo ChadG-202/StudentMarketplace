@@ -10,6 +10,7 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    height: 1000px;
 }
 
 :root{
@@ -275,8 +276,8 @@ header .logo_wrapper .logo_holder #logo{
     display: grid;
     grid-template-columns: 0.7fr 1fr 0.4fr 0.7fr;
     grid-template-rows: 0.4fr 0.2fr 0.4fr;
-    background-image: url("images/index_images/Main_image2.jpg");
-    min-height: 500px; 
+    background-image: url("images/index_images/Main_image6.jpg");
+    min-height: 39vw; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -308,13 +309,21 @@ header .logo_wrapper .logo_holder #logo{
     padding: 1% 0 5% 0;
 }
 
-#signup_page_wrapper h1{
+#sell_page_wrapper{
+    background-color: white;
+    margin: 0 30% 0 30%;
+    padding: 0.5% 0 5% 0;
+}
+
+#signup_page_wrapper h1,
+#sell_page_wrapper h1{
     font-size: 40px;
     text-align: center;
     color: #3665f3;
 }
 
-#signup_page_wrapper form{
+#signup_page_wrapper form,
+#sell_page_wrapper form{
     grid-row: 2/3;
     grid-column: 1/2;
     display: grid;
@@ -324,7 +333,17 @@ header .logo_wrapper .logo_holder #logo{
 #signup_page_wrapper form input[type="text"],
 #signup_page_wrapper form input[type="email"],
 #signup_page_wrapper form input[type="date"],
-#signup_page_wrapper form textarea{
+#signup_page_wrapper form input[type="number"],
+#signup_page_wrapper form input[type="file"],
+#signup_page_wrapper form textarea,
+#signup_page_wrapper form select,
+#sell_page_wrapper form input[type="text"],
+#sell_page_wrapper form input[type="email"],
+#sell_page_wrapper form input[type="date"],
+#sell_page_wrapper form input[type="number"],
+#sell_page_wrapper form input[type="file"],
+#sell_page_wrapper form textarea,
+#sell_page_wrapper form select{
     background-color: #f2f2f2;
     width: 70%;
     height: 90%;
@@ -338,11 +357,20 @@ header .logo_wrapper .logo_holder #logo{
 #signup_page_wrapper form input[type="text"]:valid,
 #signup_page_wrapper form input[type="email"]:valid,
 #signup_page_wrapper form input[type="date"]:valid,
-#signup_page_wrapper form textarea:valid{
+#signup_page_wrapper form input[type="number"]:valid,
+#signup_page_wrapper form textarea:valid,
+#signup_page_wrapper form select:valid,
+#sell_page_wrapper form input[type="text"]:valid,
+#sell_page_wrapper form input[type="email"]:valid,
+#sell_page_wrapper form input[type="date"]:valid,
+#sell_page_wrapper form input[type="number"]:valid,
+#sell_page_wrapper form textarea:valid,
+#sell_page_wrapper form select:valid{
     background-color: #6fbd6f86;
 }
 
-#signup_page_wrapper form input[type="submit"]{
+#signup_page_wrapper form input[type="submit"],
+#sell_page_wrapper form input[type="submit"]{
     background-color: #4CAF50;
     font-size: 1.3vw;
     width: 20%;
@@ -357,7 +385,8 @@ header .logo_wrapper .logo_holder #logo{
     -webkit-transition: ease-in-out 0.2s;
 }
 
-#signup_page_wrapper form input[type="submit"]:hover{
+#signup_page_wrapper form input[type="submit"]:hover,
+#sell_page_wrapper form input[type="submit"]:hover{
     background-color: #329035;
 }
 
