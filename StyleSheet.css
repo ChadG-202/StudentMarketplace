@@ -10,7 +10,6 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    height: 1000px;
 }
 
 :root{
@@ -322,8 +321,7 @@ header .logo_wrapper .logo_holder #logo{
     color: #3665f3;
 }
 
-#signup_page_wrapper form,
-#sell_page_wrapper form{
+#signup_page_wrapper form{
     grid-row: 2/3;
     grid-column: 1/2;
     display: grid;
@@ -359,13 +357,7 @@ header .logo_wrapper .logo_holder #logo{
 #signup_page_wrapper form input[type="date"]:valid,
 #signup_page_wrapper form input[type="number"]:valid,
 #signup_page_wrapper form textarea:valid,
-#signup_page_wrapper form select:valid,
-#sell_page_wrapper form input[type="text"]:valid,
-#sell_page_wrapper form input[type="email"]:valid,
-#sell_page_wrapper form input[type="date"]:valid,
-#sell_page_wrapper form input[type="number"]:valid,
-#sell_page_wrapper form textarea:valid,
-#sell_page_wrapper form select:valid{
+#signup_page_wrapper form select:valid{
     background-color: #6fbd6f86;
 }
 
@@ -390,6 +382,15 @@ header .logo_wrapper .logo_holder #logo{
     background-color: #329035;
 }
 
-/*take out unneeded code
-add validation and hash to secure users data
-add sell page*/
+/*Sell form Page-------------------------------------*/
+#sell_page_wrapper form h2{
+    font-size: 1.2vw;
+    margin: 10px 0 0 15%;
+}
+
+#sell_page_wrapper form{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
+}

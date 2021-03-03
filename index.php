@@ -36,6 +36,8 @@ if (isset($_POST['upload'])) {
                   while ($row = mysqli_fetch_array($sql)) {
                     echo "<li id='UserTag'> Hello ".$row['CusFname']." ".$row['CusSname']." </li>";
                     $userID = $row['CusID'];
+                    session_start();
+                    $_SESSION['CusID'] = $userID;
                   }
                 ?>
               </ul>
@@ -58,8 +60,8 @@ if (isset($_POST['upload'])) {
                 <li><a id="link6" href="" >Toys</a></li>
                 <li>
                   <?php
-                    if($userID != null){
-                      echo "<a id='link6' href='sell.html' >Sell</a>";
+                    if($_SESSION['CusID'] != null){
+                      echo "<a id='link6' href='sell.html'>Sell</a>";
                     }else{
                       echo "<a id='link6' href='' title='Login required!'>Sell</a>";
                     }
@@ -67,7 +69,7 @@ if (isset($_POST['upload'])) {
                 </li>
                 <li>
                   <?php
-                    if($userID != null){
+                    if($_SESSION['CusID'] != null){
                       echo "<a id='basket' href='basket.php'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
                     }else{
                       echo "<a id='basket' href='' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
