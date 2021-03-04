@@ -1,14 +1,17 @@
 <?php
-error_reporting(0); //prevent database errors showing on site
-$dbconnect=mysqli_connect('localhost', 'root', '', 'student_marketplace');
+session_start();//Allows for php data to be saved
+error_reporting(0);//prevent database errors showing on site
+include_once"mysql.php";
+require"encrypt-decrypt.php";
 
+//check user login
 if (isset($_POST['upload'])) {
-  $Username = $_POST['uname'];
   $Password = $_POST['psw'];
-  
-  $sql=mysqli_query($dbconnect, "CALL SearchCustomer('$Username', '$Password');");
+  $Username = $_POST['uname'];
+  $sql=mysqli_query($dbconnect, "CALL SearchCustomer('$Username');");
+}else{
+  $sql = null;
 }
-
 ?>
 
 
@@ -28,21 +31,46 @@ if (isset($_POST['upload'])) {
       <div id="home_header">
         <div id="top_bar_wrapper">
             <div id="top_bar">
+              <!--top bar containing sign up and login------------------------------------------->
               <ul>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li>/</li>
                 <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
                 <?php
-                  while ($row = mysqli_fetch_array($sql)) {
-                    echo "<li id='UserTag'> Hello ".$row['CusFname']." ".$row['CusSname']." </li>";
-                    $userID = $row['CusID'];
-                    session_start();
-                    $_SESSION['CusID'] = $userID;
+                  //if new user signs in
+                  if($sql != null){
+                    while ($row = mysqli_fetch_array($sql)) {
+                      $key = md5('hjsjJKWKsksskKK');
+                      $encryptedPassword = $row['CusPassword'];
+                      $deryptedPassword = decrypt($encryptedPassword, $key);
+                      if($deryptedPassword == $Password){
+                        $Fname = $row['CusFname'];
+                        $Sname = $row['CusSname'];
+                        $Fname = decrypt($Fname, $key);
+                        $Sname = decrypt($Sname, $key);
+  
+                        echo "<li id='UserTag'> Hello ".$Fname." ".$Sname." </li>";
+  
+                        $UserID = $row['CusID'];
+                        $_SESSION['CusID'] = $UserID;
+                        $_SESSION['CusFname'] = $Fname;
+                        $_SESSION['CusSname'] = $Sname;
+                      }else{
+                        echo "<li id='UserTag'> Wrong Password! </li>";
+                      }
+                    }
+                  //ifuser has signed in display stored results
+                  }elseif($_SESSION['CusFname'] != null){
+                    echo "<li id='UserTag'> Hello ".$_SESSION['CusFname']." ".$_SESSION['CusSname']." </li>";
+                  //if user hasnt logged in 
+                  }else{
+                    echo "<li id='UserTag'> Not Logged In </li>";
                   }
                 ?>
               </ul>
             </div>
         </div>
+        <!--Header-------------------------------------------------->
         <div class="header_wrapper">
           <header id="HomeHeader">
             <div class="logo_wrapper">
@@ -60,19 +88,21 @@ if (isset($_POST['upload'])) {
                 <li><a id="link6" href="" >Toys</a></li>
                 <li>
                   <?php
+                    //if userID is stored the give access to sell
                     if($_SESSION['CusID'] != null){
                       echo "<a id='link6' href='sell.html'>Sell</a>";
                     }else{
-                      echo "<a id='link6' href='' title='Login required!'>Sell</a>";
+                      echo "<a id='link6' href='' onclick='LoginError()' title='Login required!'>Sell</a>";
                     }
                   ?>
                 </li>
                 <li>
                   <?php
+                    //if userID is stored the give access to basket
                     if($_SESSION['CusID'] != null){
                       echo "<a id='basket' href='basket.php'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
                     }else{
-                      echo "<a id='basket' href='' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                      echo "<a id='basket' href='' onclick='LoginError()' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
                     }
                   ?>
                 </li>
@@ -81,6 +111,7 @@ if (isset($_POST['upload'])) {
           </header>
         </div>
       </div>
+      <!--Login form ------------------------------------------------------->
       <div id="id01" class="modal">
 
         <form class="modal-content animate" action="index.php" method="post">
@@ -107,6 +138,7 @@ if (isset($_POST['upload'])) {
           </div>
         </form>
       </div>
+      <!--Search section----------------------------------------------------------->
       <div id="home_search_bar_wrapper">
         <div id="search_bar">
           <form action="/action_page.php">

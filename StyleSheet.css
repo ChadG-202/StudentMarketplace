@@ -333,6 +333,7 @@ header .logo_wrapper .logo_holder #logo{
 #signup_page_wrapper form input[type="date"],
 #signup_page_wrapper form input[type="number"],
 #signup_page_wrapper form input[type="file"],
+#signup_page_wrapper form input[type="password"],
 #signup_page_wrapper form textarea,
 #signup_page_wrapper form select,
 #sell_page_wrapper form input[type="text"],
@@ -353,6 +354,7 @@ header .logo_wrapper .logo_holder #logo{
 }
 
 #signup_page_wrapper form input[type="text"]:valid,
+#signup_page_wrapper form input[type="password"]:valid,
 #signup_page_wrapper form input[type="email"]:valid,
 #signup_page_wrapper form input[type="date"]:valid,
 #signup_page_wrapper form input[type="number"]:valid,
@@ -394,3 +396,9 @@ header .logo_wrapper .logo_holder #logo{
     display: grid;
     grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
 }
+
+/*
+clean up code sort minor issues
+validate everything
+add comments
+fix login so that user stays logged in*/

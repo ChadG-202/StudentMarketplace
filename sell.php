@@ -1,26 +1,33 @@
 <?php
+session_start(); 
+include_once"mysql.php";
+
+//setting data to store
 $ProductName = $_POST['ProductName'];
 $ProductCondition = $_POST['ProductCondition'];
 $ProductDescription = $_POST['ProductDescription'];
 $ProductCost = $_POST['ProductCost'];
 $DeliveryOption = $_POST['DeliveryOption'];
 
+//retriving file
 $ProductImage = $_FILES['ProductImage']['name'];
 
+//storing file in ProductImage folder
 $target = "ProductImages/".basename($ProductImage);
 
-session_start(); 
+//retrive stored customer ID
 $UserID = $_SESSION['CusID'];
 
-$dbconnect=mysqli_connect('localhost', 'root', '', 'student_marketplace');
-
+//input data into sell table
 $sql=mysqli_query($dbconnect, "insert into sell(SellID,CusID,ProductName,ProductCondition,ProductDescription,ProductImage,ProductCost,DeliveryOption,Sold) values('','$UserID','$ProductName','$ProductCondition','$ProductDescription','$ProductImage','$ProductCost','$DeliveryOption','')") ;
 
+//check image stored
 if (move_uploaded_file($_FILES['ProductImage']['tmp_name'], $target)) {
     $msg = "Image uploaded successfully";
 }else{
     $msg = "Failed to upload image";
 }
 
+//return to main page
 header('Location: index.php');
 ?>
