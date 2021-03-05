@@ -13,12 +13,7 @@ if (isset($_POST['upload'])) {
     $sql = null;
 }
 
-if(isset($_POST['submit'])){
-    $Search = $_POST['search'];
-    $_SESSION['search'] = $Search;
-    $Search = $_SESSION['search'];
-}
-$query=mysqli_query($dbconnect, "CALL SearchSell('$Search');");
+$query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Furniture';");
 ?>
 
 
@@ -92,7 +87,7 @@ $query=mysqli_query($dbconnect, "CALL SearchSell('$Search');");
                             <li><a id="" href="electronics.php">Electronics</a></li>
                             <li><a id="" href="fashion.php">Fashion</a></li>
                             <li><a id="" href="sports.php">Sports</a></li>
-                            <li><a id="" href="furniture.php">Furniture</a></li>
+                            <li><a id="link1" href="furniture.php">Furniture</a></li>
                             <li><a id="" href="toys.php" >Toys</a></li>
                             <li>
                             <?php
@@ -112,7 +107,7 @@ $query=mysqli_query($dbconnect, "CALL SearchSell('$Search');");
             <!--Login form ------------------------------------------------------->
             <div id="id01" class="modal">
 
-                <form class="modal-content animate" action="search.php" method="post">
+                <form class="modal-content animate" action="furniture.php" method="post">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 </div>

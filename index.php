@@ -81,11 +81,11 @@ if (isset($_POST['upload'])) {
             <nav>
               <ul>
                 <li><a id="link1" href="index.php">Home</a></li>
-                <li><a id="link2" href="">Electronics</a></li>
-                <li><a id="link3" href="">Fashion</a></li>
-                <li><a id="link4" href="">Sports</a></li>
-                <li><a id="link5" href="">Furniture</a></li>
-                <li><a id="link6" href="" >Toys</a></li>
+                <li><a id="link2" href="electronics.php">Electronics</a></li>
+                <li><a id="link3" href="fashion.php">Fashion</a></li>
+                <li><a id="link4" href="sports.php">Sports</a></li>
+                <li><a id="link5" href="furniture.php">Furniture</a></li>
+                <li><a id="link6" href="toys.php" >Toys</a></li>
                 <li>
                   <?php
                     //if userID is stored the give access to sell
@@ -141,9 +141,9 @@ if (isset($_POST['upload'])) {
       <!--Search section----------------------------------------------------------->
       <div id="home_search_bar_wrapper">
         <div id="search_bar">
-          <form action="/action_page.php">
+          <form action="search.php" method="post">
             <input type="text" placeholder="Search.." name="search">
-            <button type="submit">Search</button>
+            <button type="submit" name="submit">Search</button>
           </form>
         </div>
       </div>

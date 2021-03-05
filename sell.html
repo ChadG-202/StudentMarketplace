@@ -20,7 +20,8 @@
             <h2>Condition:</h2>
             <select name="ProductCondition" id="PCondition" required>
                 <option value="New">NEW</option>
-                <option value="SlightDamage">SLIGHT DAMAGE</option>
+                <option value="SlightDamage">USED GOOD-CONDITION</option>
+                <option value="SlightDamage">USED BAD-CONDITION</option>
                 <option value="Broken">BROKEN</option>
             </select>
             <h2>Product Description:</h2>
@@ -33,6 +34,16 @@
             <select name="DeliveryOption" id="DOption" required>
                 <option value="Delivery">DELIVERY</option>
                 <option value="Collection">COLLECTION</option>
+                <option value="Both">BOTH</option>
+            </select>
+            <h2>Product Type:</h2>
+            <select name="ProductCategory" id="PCategory" required>
+                <option value="Other">OTHER</option>
+                <option value="Electronics">ELECTRONICS</option>
+                <option value="Fashion">FASHION</option>
+                <option value="Sports">SPORTS</option>
+                <option value="Furniture">FURNITURE</option>
+                <option value="Toys">TOYS</option>
             </select>
             <input type="submit" name="submit" value="Send">
         </form>

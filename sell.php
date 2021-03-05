@@ -8,6 +8,10 @@ $ProductCondition = $_POST['ProductCondition'];
 $ProductDescription = $_POST['ProductDescription'];
 $ProductCost = $_POST['ProductCost'];
 $DeliveryOption = $_POST['DeliveryOption'];
+$ProductCategory = $_POST['ProductCategory'];
+
+//adding date product is added to store
+$DateProductAdded = date("y/m/d");
 
 //retriving file
 $ProductImage = $_FILES['ProductImage']['name'];
@@ -19,7 +23,7 @@ $target = "ProductImages/".basename($ProductImage);
 $UserID = $_SESSION['CusID'];
 
 //input data into sell table
-$sql=mysqli_query($dbconnect, "insert into sell(SellID,CusID,ProductName,ProductCondition,ProductDescription,ProductImage,ProductCost,DeliveryOption,Sold) values('','$UserID','$ProductName','$ProductCondition','$ProductDescription','$ProductImage','$ProductCost','$DeliveryOption','')") ;
+$sql=mysqli_query($dbconnect, "insert into sell(SellID,CusID,ProductName,ProductCondition,ProductDescription,ProductImage,ProductCost,DeliveryOption,Sold,ProductCategory,DateProductAdded) values('','$UserID','$ProductName','$ProductCondition','$ProductDescription','$ProductImage','$ProductCost','$DeliveryOption','','$ProductCategory','$DateProductAdded')") ;
 
 //check image stored
 if (move_uploaded_file($_FILES['ProductImage']['tmp_name'], $target)) {
