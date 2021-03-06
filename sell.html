@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="images/Logo.png"/>
+    <link rel="shortcut icon" href="images/Logo8.png"/>
     <title>Sell</title>
 </head>
 <body>
@@ -14,9 +14,9 @@
     <div id="sell_page_wrapper">
         <h1>Sell A Item</h1>
         <form autocomplete="off" action="sell.php" method="post" enctype="multipart/form-data">
-            <h2>Name:</h2>
-            <input type="text" autocomplete="off" placeholder="Product Name" maxlength="100" pattern="[A-Za-z0-9_ ]{1,100}" 
-            title="Must have [Product Name]" required name="ProductName">
+            <h2>Product Name:</h2>
+            <input type="text" autocomplete="off" placeholder="Product Name" maxlength="100" pattern="[A-Za-z0-9_]{1,100}" 
+            title="Must have [Product Name] Only 'Letters', 'Numbers', '_'" required name="ProductName">
             <h2>Condition:</h2>
             <select name="ProductCondition" id="PCondition" required>
                 <option value="New">NEW</option>
@@ -25,7 +25,8 @@
                 <option value="Broken">BROKEN</option>
             </select>
             <h2>Product Description:</h2>
-            <textarea name="ProductDescription" id="PDescription" cols="30" rows="10" minlength="1" maxlength="500" required></textarea>
+            <textarea name="ProductDescription" id="PDescription" cols="30" rows="10" minlength="1" 
+            maxlength="500" placeholder="Description here..." required></textarea>
             <h2>Product Image:</h2>
             <input type="file" name="ProductImage">
             <h2>Price:</h2>

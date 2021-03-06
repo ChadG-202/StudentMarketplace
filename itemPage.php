@@ -12,6 +12,11 @@ if (isset($_POST['upload'])) {
 }else{
   $sql = null;
 }
+
+$ProductID = $_GET["uid"];
+$_SESSION['SellID'] = $ProductID;
+$ProductID = $_SESSION['SellID'];
+$product=mysqli_query($dbconnect, "CALL SearchProduct('$ProductID');");
 ?>
 
 
@@ -80,22 +85,12 @@ if (isset($_POST['upload'])) {
             </div>
             <nav>
               <ul>
-                <li><a id="link1" href="index.php">Home</a></li>
+                <li><a id="" href="index.php">Home</a></li>
                 <li><a id="link2" href="electronics.php">Electronics</a></li>
                 <li><a id="link3" href="fashion.php">Fashion</a></li>
                 <li><a id="link4" href="sports.php">Sports</a></li>
                 <li><a id="link5" href="furniture.php">Furniture</a></li>
                 <li><a id="link6" href="toys.php" >Toys</a></li>
-                <li>
-                  <?php
-                    //if userID is stored the give access to sell
-                    if($_SESSION['CusID'] != null){
-                      echo "<a id='link6' href='sell.html'>Sell</a>";
-                    }else{
-                      echo "<a id='link6' href='' onclick='LoginError()' title='Login required!'>Sell</a>";
-                    }
-                  ?>
-                </li>
                 <li>
                   <?php
                     //if userID is stored the give access to basket
@@ -114,7 +109,7 @@ if (isset($_POST['upload'])) {
       <!--Login form ------------------------------------------------------->
       <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="index.php" method="post">
+        <form class="modal-content animate" action="itemPage.php" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           </div>
@@ -138,16 +133,52 @@ if (isset($_POST['upload'])) {
           </div>
         </form>
       </div>
-      <!--Search section----------------------------------------------------------->
-      <div id="home_search_bar_wrapper">
-        <div id="search_bar">
-          <form action="search.php" method="post">
-            <input type="text" placeholder="Search.." name="search" required maxlength="70">
-            <button type="submit" name="submit">Search</button>
-          </form>
-        </div>
+      <!--Product main content----------------------------------------------------->
+      <div id="main_product_content">
+          <?php
+            while ($row = mysqli_fetch_array($product)){
+                
+                $_SESSION['ProductImage'] = $row['ProductImage'];
+                $_SESSION['ProductName'] = $row['ProductName'];
+                $_SESSION['DeliveryOption'] = $row['DeliveryOption'];
+                $_SESSION['ProductCost'] = $row['ProductCost'];
+                echo"<div id='ProductWrapper'>";
+                    echo"<div id='ProductTitleWrapper'>";
+                        echo"<h1>".$row['ProductName']."</h1>";
+                    echo "</div>";
+                    echo"<div id='ProductIMGWrapper'>";
+                        echo"<img src='ProductImages/".$row['ProductImage']."' >";
+                    echo "</div>";
+                    echo"<div id='ProductConditionWrapper'>";
+                        echo"<p>Condition: ".$row['ProductCondition']."</p>";
+                    echo "</div>";
+                    echo"<div id='ProductTXTWrapper'>";
+                        echo"<h3>Product Description:</h3>";
+                        echo"<p>".$row['ProductDescription']."</p>";
+                    echo "</div>";
+                    echo"<div id='ProductCostWrapper'>";
+                        echo"<h4>Price: £".$row['ProductCost']."</h4>";
+                    echo "</div>";
+                    echo"<div id='ProductDeliveryWrapper'>";
+                        echo"<p>DELIVERY OPTIONS: ".$row['DeliveryOption']."</p>";
+                    echo "</div>";
+                    echo"<div id='BasketWrapper'>";
+                        if($_SESSION['CusID'] != null){
+                            if($row['Sold'] == 0){
+                                echo"<a href='basketAdd.php'>ADD TO BASKET</a>";
+                            }else{
+                                echo"<a href='' onclick='soldError()'>ADD TO BASKET</a>";
+                            }
+                        }else{
+                            echo"<a href='' onclick='LoginError()'>ADD TO BASKET</a>";
+                        }
+                    echo "</div>";
+                    echo"<div id='line'></div>";
+                echo "</div>";
+                
+            }
+          ?>
       </div>
-
     </div>
     <script src="index.js"></script>
 </body>

@@ -19,3 +19,18 @@ if ( window.history.replaceState ) {
 function LoginError(){
     alert("This feature requires you to log in!")
 }
+
+function soldError(){
+    alert("Sorry, this product has been sold!")
+}
+
+//Get list item id---------------------------------------------
+function reply_click(clicked_id)
+{
+    window.location.href="itemPage.php?uid="+clicked_id;
+}
+
+function delete_click(clicked_id)
+{
+    window.location.href="basketDelete.php?uid="+clicked_id;
+}

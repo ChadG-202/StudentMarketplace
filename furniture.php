@@ -25,7 +25,7 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Fur
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="images/Logo.png"/>
+    <link rel="shortcut icon" href="images/Logo8.png"/>
     <title>Brighton Market</title>
 </head>
 <body>
@@ -134,7 +134,7 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Fur
             <div id="search_bar_mini">
                 <div id="search_bar">
                     <form action="search.php" method="post">
-                        <input type="text" placeholder="Search.." name="search">
+                        <input type="text" placeholder="Search.." name="search" required maxlength="70">
                         <button type="submit" name="submit">Search</button>
                     </form>
                 </div>
@@ -145,17 +145,20 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Fur
                     while ($row = mysqli_fetch_array($query)){
                         $ProductName = $row['ProductName'];
                         echo "<div id='product_img_search'>";
-                            echo "<img src='ProductImages/".$row['ProductImage']."' >";
-                            echo "<div id='product_txt_search'>";
-                                echo "<h3>".$ProductName."</h3>";
-                                echo "<p>".$row['ProductDescription']."</p>";
-                                echo "<p id='cost'>£".$row['ProductCost']."</p>";
-                            echo "</div>";
+                            echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
+                                echo "<img src='ProductImages/".$row['ProductImage']."' >";
+                                echo "<div id='product_txt_search'>";
+                                    echo "<h3>".$ProductName."</h3>";
+                                    echo "<p>".$row['ProductDescription']."</p>";
+                                    echo "<p id='cost'>£".$row['ProductCost']."</p>";
+                                echo "</div>";
+                            echo "</button>";
                         echo "</div>";
                     }
                     if($ProductName == null){
                         echo "<div id='NoProductMSG'>";
-                            echo"<p>Sorry, There doesnt seem to be anything with that name for sale.</p>";
+                            echo"<h2>Sorry!</h2>";
+                            echo"<p>There doesn't seem to be any results for '$Search'</p>";
                         echo "</div>";
                     }
 
@@ -163,4 +166,6 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Fur
             </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
+</html>

@@ -395,25 +395,33 @@ header .logo_wrapper .logo_holder #logo{
 }
 
 #product_img_search{
-    padding: 5px;
     margin: 20px 30% 0 30%;
+}
+
+#product_img_search:hover button{
+    background-color: #3665f363;
+}
+
+#product_img_search button{
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
-    border: 2px dashed black;
+    max-height: 15vw;
     transition: ease-in-out 0.2s;
-    cursor: pointer;
-}
-
-#product_img_search:hover{
-    background-color: #3665f363;
+    background-color: white;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-decoration: none;
 }
 
 #product_img_search img{
     width: 100%;
+    margin: auto;
     float: right;
     grid-column: 1/2;
     grid-row: 1/2;
+    max-height: 14vw;
 }
 
 #product_img_search #product_txt_search{
@@ -421,19 +429,23 @@ header .logo_wrapper .logo_holder #logo{
     grid-row: 1/2;
     display: grid;
     grid-template-rows: 0.2fr 0.8fr;
+    height: 90%;
+    text-align: left;
 }
 
 #product_img_search #product_txt_search h3{
     color: #3665f3;
-    margin: 10px 0 0 10px;
+    margin: 5px 0 0 10px;
 }
 
 #product_img_search #product_txt_search p{
+    color: #000;
     margin: 10px 0 0 10px;
     font-size: 13px;
 }
 
 #product_img_search #product_txt_search p#cost{
+    color: #000;
     font-size: 15px;
     font-weight: 600;
 }
@@ -443,15 +455,184 @@ header .logo_wrapper .logo_holder #logo{
     text-align: center;
 }
 
-#NoProductMSG p {
+#NoProductMSG p,
+#NoProductMSG h2{
     color: #f44336;
+    margin: 5px 0 0 0;
+}
+
+/*Item Page-------------------------------------------*/
+#main_product_content #ProductWrapper{
+    margin: 2% 10% 0 10%;
+    display: grid;
+    grid-template-columns: 0.99fr 0.01fr 0.05fr 0.95fr;
+    grid-template-rows: 0.2fr 0.1fr 0.1fr 0.4fr 0.1fr 0.1fr 0.2fr;
+}
+
+#main_product_content #ProductWrapper #line{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    border-right: 1px solid black;
+}
+
+#main_product_content #ProductWrapper #ProductTitleWrapper{
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+#main_product_content #ProductWrapper #ProductTitleWrapper h1{
+    margin-top: 0;
+    color: #3665f3;
+    font-size: 2.5vw;
+}
+
+#main_product_content #ProductWrapper #ProductIMGWrapper{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+
+#main_product_content #ProductWrapper #ProductIMGWrapper img{
+    width: 100%;
+}
+
+#main_product_content #ProductWrapper #ProductConditionWrapper{
+    grid-column: 4/5;
+    grid-row: 3/4;
+}
+
+#main_product_content #ProductWrapper #ProductTXTWrapper{
+    grid-column: 4/5;
+    grid-row: 4/5;
+}
+
+#main_product_content #ProductWrapper #ProductTXTWrapper h3{
+    margin-bottom: 0;
+}
+
+#main_product_content #ProductWrapper #ProductTXTWrapper p{
+    margin-top: 0;
+}
+
+#main_product_content #ProductWrapper #ProductCostWrapper{
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+#main_product_content #ProductWrapper #ProductCostWrapper h4{
+    font-size: 1.5vw;
+    margin: 2% 0 2% 0;
+}
+
+#main_product_content #ProductWrapper #ProductDeliveryWrapper{
+    grid-column: 4/5;
+    grid-row: 5/6;
+}
+
+#main_product_content #ProductWrapper #BasketWrapper{
+    grid-column: 4/5;
+    grid-row: 7/8;
+}
+
+#main_product_content #ProductWrapper #BasketWrapper a{
+    background-color: #329035;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    transition: ease-in-out 0.1s;
+}
+
+#main_product_content #ProductWrapper #BasketWrapper a:hover{
+    background-color: #4CAF50;
+}
+
+/*basket page----------------------------------------------------------------*/
+#basket_content #basketInfo{
+    margin: 10px 20% 0 10%;
+    display: grid;
+    grid-template-columns: 0.4fr 0.025fr 0.025fr 0.35fr 0.15fr;
+    grid-template-rows: 0.4fr 0.3fr 0.4fr;
+}
+
+#basket_content #basketInfo #basketIMG{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+
+#basket_content #basketInfo #basketIMG img{
+    width: 50%;
+    float: right;
+}
+
+#basket_content #basketInfo #line{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    border-right: 1px solid black;
+}
+
+#basket_content #basketInfo #basketTitle{
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+#basket_content #basketInfo #basketDelivery{
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+#basket_content #basketInfo #basketCost{
+    grid-column: 5/6;
+    grid-row: 1/2;
+}
+
+#basket_content #basketInfo #basketDelete{
+    grid-column: 4/5;
+    grid-row: 3/4;
+}
+
+#basket_content #basketInfo #basketDelete button{
+    width: 40%;
+    transition: ease-in-out 0.1s;
 }
 
 
+#basket_content_wrapper #basket_title{
+    margin-left: 24%;
+}
+
+#basket_content_wrapper #lineSeperator{
+    border-bottom: 1px solid black;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5px;
+}
+
+#basket_content_wrapper #bottomBasket{
+    margin: 0 22% 20px 0;
+    float: right;
+}
+
+#basket_content_wrapper #bottomBasket #totalPayment{
+    font-size: 1.5vw;
+}
+
+#basket_content_wrapper #bottomBasket #Proceed_payment a{
+    text-decoration: none;
+    color: white;
+    background-color: #3665f3;
+    padding: 10px;
+    transition: ease-in-out 0.1s;
+}
+
+#basket_content_wrapper #bottomBasket #Proceed_payment a:hover{
+    background-color: #3665f38d;
+}
 
 /*
-clean up code sort minor issues
-validate everything
+validate user name and password and email
+validate at database
 cookie pop up
-sell not working properly from all locations
+change login to log out when signed in
+login takes to home page try to fix issues using that
+prevent same user adding same item again as there is only ever one of every item for sale
+when proceed to checkout clicked clear user basket and set products to bought "1"
 */
