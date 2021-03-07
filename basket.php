@@ -39,7 +39,17 @@ $query=mysqli_query($dbconnect, "CALL SearchBasket('$CusID');");
                         <ul>
                             <li><a href="signup.html">Sign Up</a></li>
                             <li>/</li>
-                            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                            <?php
+                            if($_SESSION['CusID'] == null){
+                            ?>
+                                <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                            <?php
+                            }else{
+                            ?>
+                                <li><a href="logout.php">Logout</a></li>
+                            <?php
+                            }
+                            ?>
                             <?php
                             //if new user signs in
                             if($sql != null){

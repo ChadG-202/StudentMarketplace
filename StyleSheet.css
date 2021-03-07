@@ -415,6 +415,11 @@ header .logo_wrapper .logo_holder #logo{
     text-decoration: none;
 }
 
+#product_img_search #sold button{
+    border-bottom: 1px solid red;
+    border-top: 1px solid red;
+}
+
 #product_img_search img{
     width: 100%;
     margin: auto;
@@ -442,6 +447,10 @@ header .logo_wrapper .logo_holder #logo{
     color: #000;
     margin: 10px 0 0 10px;
     font-size: 13px;
+}
+
+#product_img_search #sold #product_txt_search p{
+    color: #f44336;
 }
 
 #product_img_search #product_txt_search p#cost{
@@ -630,9 +639,5 @@ header .logo_wrapper .logo_holder #logo{
 /*
 validate user name and password and email
 validate at database
-cookie pop up
-change login to log out when signed in
-login takes to home page try to fix issues using that
-prevent same user adding same item again as there is only ever one of every item for sale
-when proceed to checkout clicked clear user basket and set products to bought "1"
+fix search page prevent refresh all items showing
 */

@@ -40,7 +40,17 @@ $product=mysqli_query($dbconnect, "CALL SearchProduct('$ProductID');");
               <ul>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li>/</li>
-                <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                <?php
+                if($_SESSION['CusID'] == null){
+                ?>
+                    <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                <?php
+                }else{
+                ?>
+                    <li><a href="logout.php">Logout</a></li>
+                <?php
+                }
+                ?>
                 <?php
                   //if new user signs in
                   if($sql != null){
@@ -109,7 +119,7 @@ $product=mysqli_query($dbconnect, "CALL SearchProduct('$ProductID');");
       <!--Login form ------------------------------------------------------->
       <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="itemPage.php" method="post">
+        <form class="modal-content animate" action="index.php" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           </div>
@@ -138,45 +148,48 @@ $product=mysqli_query($dbconnect, "CALL SearchProduct('$ProductID');");
           <?php
             while ($row = mysqli_fetch_array($product)){
                 
-                $_SESSION['ProductImage'] = $row['ProductImage'];
-                $_SESSION['ProductName'] = $row['ProductName'];
-                $_SESSION['DeliveryOption'] = $row['DeliveryOption'];
-                $_SESSION['ProductCost'] = $row['ProductCost'];
-                echo"<div id='ProductWrapper'>";
-                    echo"<div id='ProductTitleWrapper'>";
-                        echo"<h1>".$row['ProductName']."</h1>";
-                    echo "</div>";
-                    echo"<div id='ProductIMGWrapper'>";
-                        echo"<img src='ProductImages/".$row['ProductImage']."' >";
-                    echo "</div>";
-                    echo"<div id='ProductConditionWrapper'>";
-                        echo"<p>Condition: ".$row['ProductCondition']."</p>";
-                    echo "</div>";
-                    echo"<div id='ProductTXTWrapper'>";
-                        echo"<h3>Product Description:</h3>";
-                        echo"<p>".$row['ProductDescription']."</p>";
-                    echo "</div>";
-                    echo"<div id='ProductCostWrapper'>";
-                        echo"<h4>Price: £".$row['ProductCost']."</h4>";
-                    echo "</div>";
-                    echo"<div id='ProductDeliveryWrapper'>";
-                        echo"<p>DELIVERY OPTIONS: ".$row['DeliveryOption']."</p>";
-                    echo "</div>";
-                    echo"<div id='BasketWrapper'>";
-                        if($_SESSION['CusID'] != null){
-                            if($row['Sold'] == 0){
-                                echo"<a href='basketAdd.php'>ADD TO BASKET</a>";
-                            }else{
-                                echo"<a href='' onclick='soldError()'>ADD TO BASKET</a>";
-                            }
-                        }else{
-                            echo"<a href='' onclick='LoginError()'>ADD TO BASKET</a>";
-                        }
-                    echo "</div>";
-                    echo"<div id='line'></div>";
-                echo "</div>";
+              $_SESSION['ProductImage'] = $row['ProductImage'];
+              $_SESSION['ProductName'] = $row['ProductName'];
+              $_SESSION['DeliveryOption'] = $row['DeliveryOption'];
+              $_SESSION['ProductCost'] = $row['ProductCost'];
+              $_SESSION['ProductCondition'] = $row['ProductCondition'];
+              $_SESSION['ProductDescription'] = $row['ProductDescription'];
+              $_SESSION['Sold'] = $row['Sold'];
                 
             }
+            echo"<div id='ProductWrapper'>";
+              echo"<div id='ProductTitleWrapper'>";
+                  echo"<h1>".$_SESSION['ProductName']."</h1>";
+              echo "</div>";
+              echo"<div id='ProductIMGWrapper'>";
+                  echo"<img src='ProductImages/".$_SESSION['ProductImage']."' >";
+              echo "</div>";
+              echo"<div id='ProductConditionWrapper'>";
+                  echo"<p>Condition: ".$_SESSION['ProductCondition']."</p>";
+              echo "</div>";
+              echo"<div id='ProductTXTWrapper'>";
+                  echo"<h3>Product Description:</h3>";
+                  echo"<p>".$_SESSION['ProductDescription']."</p>";
+              echo "</div>";
+              echo"<div id='ProductCostWrapper'>";
+                  echo"<h4>Price: £".$_SESSION['ProductCost']."</h4>";
+              echo "</div>";
+              echo"<div id='ProductDeliveryWrapper'>";
+                  echo"<p>DELIVERY OPTIONS: ".$_SESSION['DeliveryOption']."</p>";
+              echo "</div>";
+              echo"<div id='BasketWrapper'>";
+                  if($_SESSION['CusID'] != null){
+                      if($row['Sold'] == 0){
+                          echo"<a href='basketAdd.php'>ADD TO BASKET</a>";
+                      }else{
+                          echo"<a href='' onclick='soldError()'>ADD TO BASKET</a>";
+                      }
+                  }else{
+                      echo"<a href='' onclick='LoginError()'>ADD TO BASKET</a>";
+                  }
+              echo "</div>";
+              echo"<div id='line'></div>";
+            echo "</div>";
           ?>
       </div>
     </div>

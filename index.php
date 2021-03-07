@@ -35,7 +35,17 @@ if (isset($_POST['upload'])) {
               <ul>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li>/</li>
-                <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                <?php
+                if($_SESSION['CusID'] == null){
+                ?>
+                  <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                <?php
+                }else{
+                ?>
+                  <li><a href="logout.php">Logout</a></li>
+                <?php
+                }
+                ?>
                 <?php
                   //if new user signs in
                   if($sql != null){
@@ -59,7 +69,7 @@ if (isset($_POST['upload'])) {
                         echo "<li id='UserTag'> Wrong Password! </li>";
                       }
                     }
-                  //ifuser has signed in display stored results
+                  //if user has signed in display stored results
                   }elseif($_SESSION['CusFname'] != null){
                     echo "<li id='UserTag'> Hello ".$_SESSION['CusFname']." ".$_SESSION['CusSname']." </li>";
                   //if user hasnt logged in 

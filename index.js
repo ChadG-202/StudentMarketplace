@@ -24,6 +24,10 @@ function soldError(){
     alert("Sorry, this product has been sold!")
 }
 
+function InBasketError(){
+    alert("Sorry, this item is already in your basket!")
+}
+
 //Get list item id---------------------------------------------
 function reply_click(clicked_id)
 {

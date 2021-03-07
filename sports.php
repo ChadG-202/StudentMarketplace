@@ -38,7 +38,17 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Spo
                     <ul>
                         <li><a href="signup.html">Sign Up</a></li>
                         <li>/</li>
-                        <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                        <?php
+                        if($_SESSION['CusID'] == null){
+                        ?>
+                            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+                        <?php
+                        }else{
+                        ?>
+                            <li><a href="logout.php">Logout</a></li>
+                        <?php
+                        }
+                        ?>
                         <?php
                         //if new user signs in
                         if($sql != null){
@@ -107,7 +117,7 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Spo
             <!--Login form ------------------------------------------------------->
             <div id="id01" class="modal">
 
-                <form class="modal-content animate" action="sports.php" method="post">
+                <form class="modal-content animate" action="index.php" method="post">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 </div>
@@ -144,16 +154,31 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Spo
 
                     while ($row = mysqli_fetch_array($query)){
                         $ProductName = $row['ProductName'];
-                        echo "<div id='product_img_search'>";
-                            echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
-                                echo "<img src='ProductImages/".$row['ProductImage']."' >";
-                                echo "<div id='product_txt_search'>";
-                                    echo "<h3>".$ProductName."</h3>";
-                                    echo "<p>".$row['ProductDescription']."</p>";
-                                    echo "<p id='cost'>£".$row['ProductCost']."</p>";
+                        if($row['Sold'] == 0){
+                            echo "<div id='product_img_search'>";
+                                echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
+                                    echo "<img src='ProductImages/".$row['ProductImage']."' >";
+                                    echo "<div id='product_txt_search'>";
+                                        echo "<h3>".$ProductName."</h3>";
+                                        echo "<p>".$row['ProductDescription']."</p>";
+                                        echo "<p id='cost'>£".$row['ProductCost']."</p>";
+                                    echo "</div>";
+                                echo "</button>";
+                            echo "</div>";
+                        }else{
+                            echo "<div id='product_img_search'>";
+                                echo "<div id='sold'>";
+                                    echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
+                                        echo "<img src='ProductImages/".$row['ProductImage']."' >";
+                                        echo "<div id='product_txt_search'>";
+                                            echo "<h3>".$ProductName."</h3>";
+                                            echo "<p>This Product has been sold!</p>";
+                                            echo "<p id='cost'>£".$row['ProductCost']."</p>";
+                                        echo "</div>";
+                                    echo "</button>";
                                 echo "</div>";
-                            echo "</button>";
-                        echo "</div>";
+                            echo "</div>";
+                        }
                     }
                     if($ProductName == null){
                         echo "<div id='NoProductMSG'>";
