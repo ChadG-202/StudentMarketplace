@@ -12,6 +12,7 @@ if (isset($_POST['upload'])) {
 }else{
   $sql = null;
 }
+
 ?>
 
 
@@ -65,8 +66,9 @@ if (isset($_POST['upload'])) {
                         $_SESSION['CusID'] = $UserID;
                         $_SESSION['CusFname'] = $Fname;
                         $_SESSION['CusSname'] = $Sname;
+                        header('Location: index.php'); 
                       }else{
-                        echo "<li id='UserTag'> Wrong Password! </li>";
+                        echo "<li id='UserTag'> Wrong Password </li>";
                       }
                     }
                   //if user has signed in display stored results
@@ -150,6 +152,7 @@ if (isset($_POST['upload'])) {
       </div>
       <!--Search section----------------------------------------------------------->
       <div id="home_search_bar_wrapper">
+        <h1>Easy, Local, Affordable</h1>
         <div id="search_bar">
           <form action="search.php" method="post">
             <input type="text" placeholder="Search.." name="search" required maxlength="70">
@@ -157,7 +160,74 @@ if (isset($_POST['upload'])) {
           </form>
         </div>
       </div>
+      <!--Recently veiwed section--------------------------------------------------->
+      <div id="Recently_Viewed_Wrapper">
+        <h1>Recently Viewed</h1>
+        <div id="viewLine"></div>
+        <ul>
+        <?php
+          $cus = $_SESSION['CusID'];
+          $query=mysqli_query($dbconnect, "CALL SearchRecentlyViewed('$cus');");
 
+          while ($row = mysqli_fetch_array($query)){
+            $ProductName = $row['ProductName'];
+            echo "<li>";
+              echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
+                echo "<h3>".$ProductName."</h3>";
+                echo "<img src='ProductImages/".$row['ProductImage']."' >";
+              echo "</button>";
+            echo "</li>";
+          }
+          if($ProductName == null){
+            echo "<div id='NoViewedMSG'>";
+              echo"<h2>Sorry!</h2>";
+              echo"<p>You haven't viewed any products yet!</p>";
+            echo "</div>";
+          }
+        ?>
+        </ul>
+      </div>
+      <!--Advertisment------------------------------------------------------------------>
+      <div id="supportAdvert">
+        <img src="images/index_images/ad.png" alt="advert">
+        <a href="sell.html">Start selling &rarr;</a>
+      </div>
+      <!--back to top button----------------------------------------------------------->
+      <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
+      <!--Footer---------------------------------------------------------------------------->
+      <footer>
+        <div class="footerTop">
+          <div id="contact">
+            <h1>Contact Us</h1>
+            <ul>
+              <li><a href=""><img id="facebook" src="images/Media_images/facebook.png" alt=""></a></li>
+              <li><a href=""><img id="instagram" src="images/Media_images/instagram.png" alt=""></a></li>
+              <li><a href=""><img id="twitter" src="images/Media_images/twitter.png" alt=""></a></li>
+              <li><a href=""><img id="email" src="images/Media_images/email.png" alt=""></a></li>
+            </ul>
+          </div> 
+          <div id="about">
+            <h1>About</h1>
+            <p>This is an example market place website, created as a project for the CI536 - Intergrated Group project module. The website aims to be a simple site for Brighton students to buy and sell items locally.</p>
+          </div>
+          <div id="explore">
+            <h1>Explore</h1>
+            <ul>
+              <li><a href="electronics.php">Electronics</a></li>
+              <li><a href="fashion.php">Fashion</a></li>
+              <li><a href="sports.php">Sports</a></li>
+              <li><a href="furniture.php">Furniture</a></li>
+              <li><a href="toys.php">Toys</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footerBottom">
+          <p>Copyright &copy; 2021 Brighton Marketplace inc. All Rights Reserved.</p>
+        </div>
+      </footer>
+      <div id="references">
+        <h2>References:</h2>
+      </div>
     </div>
     <script src="index.js"></script>
 </body>

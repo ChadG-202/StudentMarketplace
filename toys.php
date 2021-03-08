@@ -189,6 +189,39 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Toy
 
                 ?>
             </div>
+            <!--back to top button----------------------------------------------------------->
+            <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
+            <!--Footer---------------------------------------------------------------------------->
+            <footer>
+                <div class="footerTop">
+                <div id="contact">
+                    <h1>Contact Us</h1>
+                    <ul>
+                    <li><a href=""><img src="images/Media_images/facebook.png" alt=""></a></li>
+                    <li><a href=""><img src="images/Media_images/instagram.png" alt=""></a></li>
+                    <li><a href=""><img src="images/Media_images/twitter.png" alt=""></a></li>
+                    <li><a href=""><img src="images/Media_images/email.png" alt=""></a></li>
+                    </ul>
+                </div> 
+                <div id="about">
+                    <h1>About</h1>
+                    <p>This is an example market place website, created as a project for the CI536 - Intergrated Group project module. The website aims to be a simple site for Brighton students to buy and sell items locally.</p>
+                </div>
+                <div id="explore">
+                    <h1>Explore</h1>
+                    <ul>
+                    <li><a href="electronics.php">Electronics</a></li>
+                    <li><a href="fashion.php">Fashion</a></li>
+                    <li><a href="sports.php">Sports</a></li>
+                    <li><a href="furniture.php">Furniture</a></li>
+                    <li><a href="toys.php">Toys</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="footerBottom">
+                <p>Copyright &copy; 2021 Brighton Marketplace inc. All Rights Reserved.</p>
+                </div>
+            </footer>
         </div>
     </div>
     <script src="index.js"></script>
