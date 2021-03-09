@@ -824,14 +824,6 @@ footer .footerBottom p{
 }
 
 /*References-------------------------------------------------------*/
-#references{
-    background-color: black;
-    color: #777;
-}
-
-#references h2{
-    margin: 0 0 0 2%;
-}
 
 /*
 validate user name and password

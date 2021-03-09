@@ -232,9 +232,6 @@ if (isset($_POST['upload'])) {
           <p>Copyright &copy; 2021 Brighton Marketplace inc. All Rights Reserved.</p>
         </div>
       </footer>
-      <div id="references">
-        <h2>References:</h2>
-      </div>
     </div>
     <script src="index.js"></script>
 </body>
