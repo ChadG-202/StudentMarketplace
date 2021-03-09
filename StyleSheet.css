@@ -832,7 +832,16 @@ footer .footerBottom p{
     color: #777;
 }
 
-/*
+/*Validation to do
 validate user name and password 
+check email is real
 display wrong login 
 */
+
+/*Potential addition 
+checkout turn items to sold
+item and user is stored in checkout database
+sell and buyer both emailed with contact details so that they can arrange pickup and purchase
+get forgotten password working
+add multiple listing pages for large search
+make it fit a phone*/

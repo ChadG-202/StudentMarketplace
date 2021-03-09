@@ -149,35 +149,25 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Spo
                     </form>
                 </div>
             </div>
+            <!--search---------------------------------------------------------->
             <div id="search_content">
                 <?php
 
                     while ($row = mysqli_fetch_array($query)){
-                        $ProductName = $row['ProductName'];
-                        if($row['Sold'] == 0){
-                            echo "<div id='product_img_search'>";
-                                echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
-                                    echo "<img src='ProductImages/".$row['ProductImage']."' >";
-                                    echo "<div id='product_txt_search'>";
-                                        echo "<h3>".$ProductName."</h3>";
-                                        echo "<p>".$row['ProductDescription']."</p>";
-                                        echo "<p id='cost'>£".$row['ProductCost']."</p>";
-                                    echo "</div>";
-                                echo "</button>";
-                            echo "</div>";
-                        }else{
-                            echo "<div id='product_img_search'>";
-                                echo "<div id='sold'>";
+                        while ($row = mysqli_fetch_array($query)){
+                            if($row['Sold'] == 0){
+                                $ProductName = $row['ProductName'];
+                                echo "<div id='product_img_search'>";
                                     echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
                                         echo "<img src='ProductImages/".$row['ProductImage']."' >";
                                         echo "<div id='product_txt_search'>";
                                             echo "<h3>".$ProductName."</h3>";
-                                            echo "<p>This Product has been sold!</p>";
+                                            echo "<p>".$row['ProductDescription']."</p>";
                                             echo "<p id='cost'>£".$row['ProductCost']."</p>";
                                         echo "</div>";
                                     echo "</button>";
                                 echo "</div>";
-                            echo "</div>";
+                            }
                         }
                     }
                     if($ProductName == null){
