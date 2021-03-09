@@ -13,7 +13,7 @@ if (isset($_POST['upload'])) {
     $sql = null;
 }
 
-$query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Electronics';");
+$query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Electronics' ORDER BY SellID DESC LIMIT 20;");
 ?>
 
 

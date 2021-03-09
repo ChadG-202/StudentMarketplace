@@ -190,7 +190,14 @@ if (isset($_POST['upload'])) {
       <!--Advertisment------------------------------------------------------------------>
       <div id="supportAdvert">
         <img src="images/index_images/ad.png" alt="advert">
-        <a href="sell.html">Start selling &rarr;</a>
+        <?php
+          if($_SESSION['CusID'] != null){
+            echo"<a href='sell.html'>Start selling &rarr;</a>";
+          }else{
+            echo"<a href='' onclick='LoginError()'>Start selling &rarr;</a>";
+          }
+        ?>
+        
       </div>
       <!--back to top button----------------------------------------------------------->
       <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>
