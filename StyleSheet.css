@@ -484,6 +484,10 @@ header .logo_wrapper .logo_holder #logo{
     grid-column: 4/5;
 }
 
+#search_content{
+    min-height: 800px;
+}
+
 #product_img_search{
     margin: 20px 30% 0 30%;
 }
@@ -793,7 +797,7 @@ footer .footerTop ul{
 
 footer .footerTop #explore li{
     display: inline;
-    margin: 0 20% 0 20%;
+    margin: 0 40% 0 40%;
 }
 
 footer .footerTop #explore a:hover{
@@ -823,13 +827,9 @@ footer .footerBottom p{
     color: #777;
 }
 
-/*References-------------------------------------------------------*/
-
 /*
-validate user name and password
-validate at database
-display wrong login
-limit image quality on submission
-add back to top arrow
-reference section on index page
+validate user name and password 
+display wrong login 
+validate only 1 of email sign up
+take to page to be sent password if they know email
 */
