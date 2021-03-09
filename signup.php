@@ -27,7 +27,7 @@ $Password = encrypt($Password, $key);
 
 $query=mysqli_query($dbconnect, "SELECT CusUsername FROM customer where CusUsername='$Username'");
 if(mysqli_num_rows($query) > 0){
-    header('Location: signup.html');
+    header('Location: IncorrectSignUp.html');
 }else{
     //store data in customer table
     $sql=mysqli_query($dbconnect, "insert into customer(CusID,CusFname,CusSname,CusDOB,CusAddressLine1,CusAddressLine2,CusPostCode,CusEmail,CusUsername,CusPassword) values('','$Forename','$Surname','$DOB','$AddressLine1','$AddressLine2','$PostCode','$Email','$Username','$Password')");
@@ -35,10 +35,6 @@ if(mysqli_num_rows($query) > 0){
     header('Location: index.php'); 
 }
 
-//add if post
-//validate email is real
-//check if email already registered
-//make sure DOB isnt in future
 //check username meets criteria
 //check if password meets criteria
 

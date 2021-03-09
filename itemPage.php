@@ -13,8 +13,7 @@ if (isset($_POST['upload'])) {
   $sql = null;
 }
 
-//$ProductID = $_GET["uid"];
-//$_SESSION['SellID'] = $ProductID;
+//item to display
 $ProductID = $_SESSION['SellID'];
 $product=mysqli_query($dbconnect, "CALL SearchProduct('$ProductID');");
 ?>

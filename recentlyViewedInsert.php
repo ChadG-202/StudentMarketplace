@@ -11,6 +11,7 @@ $sold = $_SESSION['Sold'];
 
 $query=mysqli_query($dbconnect, "SELECT * FROM recentlyviewed WHERE CusID = $CusID AND SellID = $ProductID");
 
+//if already in recenlty viewed dont add otherwise add
 if($row = mysqli_fetch_array($query)){
     header('Location: itemPage.php');  
 }else{

@@ -455,6 +455,11 @@ header .logo_wrapper .logo_holder #logo{
     background-color: #329035;
 }
 
+#signup_page_wrapper form h3{
+    color: red;
+    text-align: center;
+}
+
 /*Sell form Page-------------------------------------*/
 #sell_page_wrapper form h2{
     font-size: 1.2vw;
@@ -830,6 +835,4 @@ footer .footerBottom p{
 /*
 validate user name and password 
 display wrong login 
-validate only 1 of email sign up
-take to page to be sent password if they know email
 */

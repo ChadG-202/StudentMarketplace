@@ -13,6 +13,7 @@ if (isset($_POST['upload'])) {
   $sql = null;
 }
 
+//search basket for current customer items only show 6 newest
 $CusID = $_SESSION['CusID'];
 $query=mysqli_query($dbconnect, "CALL SearchBasket('$CusID');");
 ?>

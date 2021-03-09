@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Logo8.png"/>
+    <title>Sign Up</title>
+</head>
+<body>
+    <!--Incorrect Sign up form----------------------------------------------------------------->
+    <div id="signup_page_wrapper">
+        <h1>Sign Up</h1>
+        <form autocomplete="off" action="signup.php" method="post" enctype="multipart/form-data">
+            <input type="text" autocomplete="off" placeholder="Forename" maxlength="32" pattern="[a-zA-Z]+$" 
+            title="Must have [Forename] no numbers or symbols" required name="Forename">
+            <input type="text" autocomplete="off" placeholder="Surname" maxlength="32" pattern="[a-zA-Z]+$" 
+            title="Must have [Surname] no numbers or symbols" required name="Surname">
+            <input type="date" autocomplete="off" placeholder="DOB" required name="DOB" min="1920-05-11">
+            <input type="text" autocomplete="off" placeholder="Address Line 1" maxlength="50" pattern="[0-9]+ [a-zA-Z]+ [a-zA-Z]+$" 
+            title="Must have [Address Line 1] Formatted:[House number, Street name]" required name="AddressLine1">
+            <input type="text" autocomplete="off" placeholder="Address Line 2" maxlength="50" pattern="[a-zA-Z]+$" 
+            title="Must have [Address line 2] Formatted:[Town]" required name="AddressLine2">
+            <input type="text" autocomplete="off" placeholder="PostCode" maxlength="8" pattern="[a-zA-Z0-9]+ [a-zA-Z0-9]+$" 
+            title="Must have [Postcode] Formatted:[LLN(N) NLL]" required name="PostCode">
+            <input type="email" autocomplete="off" placeholder="E-mail" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+            title="Must fit format [characters@characters.domain]" required name="Email">
+            <h3>Username Already Taken</h3>
+            <input type="text" autocomplete="off" placeholder="Username" maxlength="32" pattern="[a-zA-Z0-9]+$" 
+            title="Must have [Only numbers and characters]" required name="Username">
+            <input type="password" autocomplete="off" placeholder="Password" maxlength="32" pattern="[a-zA-Z0-9]+$" 
+            title="Must have [Only numbers and characters]" required name="Password">
+            <input type="submit" name="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
