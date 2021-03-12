@@ -173,6 +173,10 @@ html, body {
 }
 
 /*Index Header--------------------------------------------*/
+.header_wrapper_2{
+    display: none;
+    grid-row: 2/3;
+}
 
 header{
     background-color: var(--black);
@@ -352,6 +356,10 @@ header .logo_wrapper .logo_holder #logo{
 }
 
 /*index advert------------------------------------------------------------*/
+#supportAdvert2{
+    display: none;
+}
+
 #supportAdvert{
     margin-bottom: 50px;
     display: grid;
@@ -359,13 +367,15 @@ header .logo_wrapper .logo_holder #logo{
     grid-template-rows: 0.75fr 0.2fr 0.1fr;
 }
 
-#supportAdvert img{
+#supportAdvert img,
+#supportAdvert2 img{
     width: 100%;
     grid-column: 1/-1;
     grid-row: 1/-1;
 }
 
-#supportAdvert a{
+#supportAdvert a,
+#supportAdvert2 a{
     margin: auto;
     font-size: 1.8vw;
     grid-column: 2/3;
@@ -374,10 +384,12 @@ header .logo_wrapper .logo_holder #logo{
     border: 1px solid white;
     text-decoration: none;
     padding: 10px;
+    z-index: 98;
     transition: ease-in-out 0.2s;
 }
 
-#supportAdvert a:hover{
+#supportAdvert a:hover,
+#supportAdvert2 a:hover{
     background-color: black;
 }
 
@@ -832,16 +844,337 @@ footer .footerBottom p{
     color: #777;
 }
 
+/*Tablet -------------------------------------------------------------------*/
+@media only screen and (max-width: 900px) {
+    /*index----------------------------------------------------*/
+    #index_page_wrapper header nav ul li a#basket img{
+        margin-top: 3px;
+        width: 20px;
+    }
+
+    #supportAdvert{
+        grid-template-rows: 1fr 0.2fr 0.1fr;
+    }
+    /*Signup and Sell-----------------------------------------*/
+    #signup_page_wrapper{
+        margin: 4% 10% 0 10%;
+    }
+    
+    #sell_page_wrapper{
+        margin: 0 10% 0 10%;
+    }
+
+    #signup_page_wrapper form input[type="text"],
+    #signup_page_wrapper form input[type="email"],
+    #signup_page_wrapper form input[type="date"],
+    #signup_page_wrapper form input[type="password"],
+    #sell_page_wrapper form input[type="text"],
+    #sell_page_wrapper form input[type="number"],
+    #sell_page_wrapper form input[type="file"],
+    #sell_page_wrapper form textarea,
+    #sell_page_wrapper form select{
+        font-size: 20px;
+    }
+
+    #signup_page_wrapper form input[type="submit"],
+    #sell_page_wrapper form input[type="submit"]{
+    font-size: 20px;
+
+}
+
+}
+
+/*Small Tablet-------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+    /*index----------------------------------------------------*/
+    #Recently_Viewed_Wrapper ul{
+        margin-left: 20%;
+    }
+    
+    #Recently_Viewed_Wrapper ul li{
+        display: block;
+    }
+    
+    #Recently_Viewed_Wrapper ul li button{
+        width: 60%;
+        height: 34vw;
+    }
+
+    #index_page_wrapper .modal-content {
+        width: 70%; 
+    }
+    
+    /*Footer-----------------------------------------------------*/
+    footer #contact ul li{
+        display: block;
+    }
+    
+    footer img{
+        width: 7vw;
+    }
+    
+    footer .footerTop p{
+        margin: 0 1% 0 1%;
+    }
+    
+    footer .footerBottom p{
+        font-size: 1.8vw;
+    }
+
+    /*Search---------------------------------------------------------*/
+    #product_img_search{
+        margin: 20px 10% 0 10%;
+    }
+    
+    #product_img_search button{
+        max-height: 20vw;
+    }
+
+    /*Basket--------------------------------------------------------------*/
+    #basket_content #basketInfo{
+        margin: 10px 0 0 0;
+    }
+    
+    #basket_content #basketInfo #basketIMG img{
+        width: 100%;
+    }
+    
+    #basket_content_wrapper #lineSeperator{
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+    #basket_content_wrapper #bottomBasket #totalPayment{
+        font-size: 15px;
+    }
+
+    #basket_content_wrapper{
+        margin-bottom: 50px;
+    }
+}
+
+/*Phone-----------------------------------------------------------*/
+@media only screen and (max-width: 450px) {
+    /*header-----------------------------------------------*/
+    .header_wrapper_2{
+        display: block;
+    }
+
+    .header_wrapper_2 img{
+        filter: invert(0.4);
+    }
+
+    .header_wrapper_2 span{
+        text-align: right;
+        font-size:30px;
+        cursor:pointer;
+        color:white;
+        margin: 20px;
+    }
+
+    .header_wrapper{
+        display: none;
+    }
+
+    /*recently viewed-------*/
+
+    #Recently_Viewed_Wrapper ul{
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    #Recently_Viewed_Wrapper ul li button{
+        width: 100%;
+        height: 100vw;
+    }
+    
+    
+    #Recently_Viewed_Wrapper ul li button img{
+        width: 80%;
+    }
+    
+    #Recently_Viewed_Wrapper ul li button h3{
+        font-size: 20px;
+    }
+
+    /*menu button------*/
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+      
+      .overlay-content {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 100px;
+    }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+
+    #home_search_bar_wrapper{
+        grid-template-columns: 0.1fr 1fr 0.4fr 0.1fr;
+    }
+    
+    #home_search_bar_wrapper h1{
+        font-size: 7vw;
+    }
+
+    /*ad-----------------------------*/
+    #supportAdvert2{
+        display: block;
+    }
+    
+    #supportAdvert{
+        display: none;
+    }
+
+    #supportAdvert2{
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: 0.12fr 1fr 0.05fr;
+        grid-template-rows: 0.6fr 0.4fr;
+    }
+
+    #supportAdvert2 a{
+        margin: auto auto auto 0;
+        font-size: 5vw;
+    }
+
+    /*footer-------------------------------*/
+    footer .footerTop{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 1fr 1fr;
+    }
+
+    footer #contact ul li{
+        display: inline;
+    }
+
+    footer img{
+        width: 13vw;
+    }
+
+    /*Signup and Sell-----------------------------------------*/
+    #signup_page_wrapper{
+        margin: 4% 0 0 0;
+    }
+    
+    #sell_page_wrapper{
+        margin: 0 0 0 0;
+    }
+
+    #signup_page_wrapper form input[type="text"],
+    #signup_page_wrapper form input[type="email"],
+    #signup_page_wrapper form input[type="date"],
+    #signup_page_wrapper form input[type="password"],
+    #sell_page_wrapper form input[type="text"],
+    #sell_page_wrapper form input[type="number"],
+    #sell_page_wrapper form input[type="file"],
+    #sell_page_wrapper form textarea,
+    #sell_page_wrapper form select{
+        width: 90%;
+    }
+
+    /*Search---------------------------------------------------------*/
+    #product_img_search{
+        margin: 20px 5px 0 5px;
+    }
+    
+    #product_img_search button{
+        max-height: 50vw;
+    }
+
+    #search_bar_mini #search_bar form{
+        grid-template-columns: 0.1fr 0.9fr 0.05fr 0.2fr 0.1fr;
+    }
+
+    /*item page----------------------------------------*/
+    #main_product_content #ProductWrapper{
+        margin: 2% 0% 10% 0%;
+    }
+    
+    #main_product_content #ProductWrapper #ProductTitleWrapper h1{
+        font-size: 20px;
+    }
+    
+    #main_product_content #ProductWrapper #ProductTXTWrapper p{
+        font-size: 12px;
+    }
+    
+    
+    #main_product_content #ProductWrapper #ProductCostWrapper h4{
+        font-size: 15px;
+    }
+
+    /*Basket--------------------------------------------------------------*/
+    #basket_content #basketInfo{
+        grid-template-columns: 0.4fr 0.025fr 0.025fr 0.35fr 0.2fr;
+        grid-template-rows: 0.4fr 0.3fr 0.4fr;
+    }
+    
+    #basket_content #basketInfo #basketDelete button{
+        width: 100%;
+    }
+    
+    #basket_content_wrapper #bottomBasket{
+        margin: 0 10% 20px 0;
+    }
+    
+}
+
+/*Small Phone----------------------------------------------*/
+@media only screen and (max-width: 321px) {
+    #index_page_wrapper #top_bar ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    #index_page_wrapper #top_bar ul li#UserTag{
+        margin-left: 5px;
+    }
+
+    #index_page_wrapper .modal-content {
+        width: 90%;
+    }
+}
+
+
+
 /*Validation to do
 validate user name and password 
-check email is real
 display wrong login 
 */
 
-/*Potential addition 
-checkout turn items to sold
-item and user is stored in checkout database
-sell and buyer both emailed with contact details so that they can arrange pickup and purchase
-get forgotten password working
-add multiple listing pages for large search
-make it fit a phone*/
+/*made it so items now change to sold when checked out
+they no longer show up when looking for products
+and they get moved to checkout database table.
+
+cant do on local host but real product when then eamil sell and customer to get themmconnect so they 
+can complete purchase*/

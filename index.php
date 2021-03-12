@@ -68,7 +68,7 @@ if (isset($_POST['upload'])) {
                         $_SESSION['CusSname'] = $Sname;
                         header('Location: index.php'); 
                       }else{
-                        echo "<li id='UserTag'> Wrong Password </li>";
+                        echo "<li id='UserTag' style='color:red;'> Wrong Password </li>";
                       }
                     }
                   //if user has signed in display stored results
@@ -122,6 +122,41 @@ if (isset($_POST['upload'])) {
             </nav>
           </header>
         </div>
+      </div>
+      <div class="header_wrapper_2">
+        <header>
+          <div class="logo_wrapper">
+            <div class="logo_holder">
+              <div id="logo">BRIGHTON MARKET</div>
+            </div>
+          </div>
+          <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+              <a href="index.php">Home</a>
+              <a href="electronics.php">Electronics</a>
+              <a href="fashion.php">Fashion</a>
+              <a href="sports.php">Sports</a>
+              <a href="furniture.php">Furniture</a>
+              <a href="toys.php">Toys</a>
+              <?php
+                //if userID is stored the give access to sell
+                if($_SESSION['CusID'] != null){
+                  echo "<a id='link6' href='sell.html'>Sell</a>";
+                }else{
+                  echo "<a id='link6' href='' onclick='LoginError()' title='Login required!'>Sell</a>";
+                }
+                //if userID is stored the give access to basket
+                if($_SESSION['CusID'] != null){
+                  echo "<a id='basket' href='basket.php'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                }else{
+                  echo "<a id='basket' href='' onclick='LoginError()' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                }
+              ?>
+            </div>
+          </div>
+          <span onclick="openNav()">&#9776;</span>
+        </header>
       </div>
       <!--Login form ------------------------------------------------------->
       <div id="id01" class="modal">
@@ -197,7 +232,16 @@ if (isset($_POST['upload'])) {
             echo"<a href='' onclick='LoginError()'>Start selling &rarr;</a>";
           }
         ?>
-        
+      </div>
+      <div id="supportAdvert2">
+        <img src="images/index_images/ad2.png" alt="advert">
+        <?php
+          if($_SESSION['CusID'] != null){
+            echo"<a href='sell.html'>Start selling &rarr;</a>";
+          }else{
+            echo"<a href='' onclick='LoginError()'>Start selling &rarr;</a>";
+          }
+        ?>
       </div>
       <!--back to top button----------------------------------------------------------->
       <a onclick="topFunction()" id="myBtn" title="Go to top">Top</a>

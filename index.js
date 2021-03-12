@@ -62,3 +62,12 @@ function delete_click(clicked_id)
 {
     window.location.href="basketDelete.php?uid="+clicked_id;
 }
+
+//mobile menu button--------------------------------------------
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+  
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}

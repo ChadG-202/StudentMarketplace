@@ -114,6 +114,41 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Spo
                     </header>
                 </div>
             </div>
+            <div class="header_wrapper_2">
+                <header>
+                    <div class="logo_wrapper">
+                        <div class="logo_holder">
+                            <div id="logo">BRIGHTON MARKET</div>
+                        </div>
+                    </div>
+                    <div id="myNav" class="overlay">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <div class="overlay-content">
+                        <a href="index.php">Home</a>
+                        <a href="electronics.php">Electronics</a>
+                        <a href="fashion.php">Fashion</a>
+                        <a href="sports.php">Sports</a>
+                        <a href="furniture.php">Furniture</a>
+                        <a href="toys.php">Toys</a>
+                        <?php
+                            //if userID is stored the give access to sell
+                            if($_SESSION['CusID'] != null){
+                                echo "<a id='link6' href='sell.html'>Sell</a>";
+                            }else{
+                                echo "<a id='link6' href='' onclick='LoginError()' title='Login required!'>Sell</a>";
+                            }
+                            //if userID is stored the give access to basket
+                            if($_SESSION['CusID'] != null){
+                                echo "<a id='basket' href='basket.php'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                            }else{
+                                echo "<a id='basket' href='' onclick='LoginError()' title='Login required!'><img src='https://img.icons8.com/material/96/000000/shopping-cart--v1.png'/></a>";
+                            }
+                        ?>
+                        </div>
+                    </div>
+                    <span onclick="openNav()">&#9776;</span>
+                </header>
+            </div>
             <!--Login form ------------------------------------------------------->
             <div id="id01" class="modal">
 
