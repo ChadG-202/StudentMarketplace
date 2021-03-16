@@ -12,10 +12,11 @@ while ($row = mysqli_fetch_array($select)){
     $SellID = $row['SellID'];
     $SetSold = mysqli_query($dbconnect, "UPDATE sell SET Sold = 1 WHERE SellID = $SellID");
     $Checkout = mysqli_query($dbconnect, "INSERT INTO checkout(CusID,SellID,CheckoutDate) VALUES($CusID,$SellID,'$CheckoutDate')");
+    //clear customer basket items
+    $delete=mysqli_query($dbconnect, "DELETE FROM basket WHERE SellID = $SellID");
 }
 
-//clear customer basket items
-$delete=mysqli_query($dbconnect, "DELETE FROM basket WHERE CusID = $CusID");
+
 header('Location: basket.php'); 
 
 ?>
