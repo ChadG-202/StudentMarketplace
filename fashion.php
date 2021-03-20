@@ -187,31 +187,27 @@ $query=mysqli_query($dbconnect, "SELECT * FROM sell WHERE ProductCategory = 'Fas
             <!--search---------------------------------------------------------->
             <div id="search_content">
                 <?php
-
-                    while ($row = mysqli_fetch_array($query)){
-                        while ($row = mysqli_fetch_array($query)){
-                            if($row['Sold'] == 0){
-                                $ProductName = $row['ProductName'];
-                                echo "<div id='product_img_search'>";
-                                    echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
-                                        echo "<img src='ProductImages/".$row['ProductImage']."' >";
-                                        echo "<div id='product_txt_search'>";
-                                            echo "<h3>".$ProductName."</h3>";
-                                            echo "<p>".$row['ProductDescription']."</p>";
-                                            echo "<p id='cost'>£".$row['ProductCost']."</p>";
-                                        echo "</div>";
-                                    echo "</button>";
+                while ($row = mysqli_fetch_array($query)){
+                    if($row['Sold'] == 0){
+                        $ProductName = $row['ProductName'];
+                        echo "<div id='product_img_search'>";
+                            echo "<button onClick='reply_click(this.id)' id='".$row['SellID']."'>";
+                                echo "<img src='ProductImages/".$row['ProductImage']."' >";
+                                echo "<div id='product_txt_search'>";
+                                    echo "<h3>".$ProductName."</h3>";
+                                    echo "<p>".$row['ProductDescription']."</p>";
+                                    echo "<p id='cost'>£".$row['ProductCost']."</p>";
                                 echo "</div>";
-                            }
-                        }
-                    }
-                    if($ProductName == null){
-                        echo "<div id='NoProductMSG'>";
-                            echo"<h2>Sorry!</h2>";
-                            echo"<p>There doesn't seem to be any results for '$Search'</p>";
+                            echo "</button>";
                         echo "</div>";
                     }
-
+                }
+                if($ProductName == null){
+                    echo "<div id='NoProductMSG'>";
+                        echo"<h2>Sorry!</h2>";
+                        echo"<p>There doesn't seem to be any results for fashion</p>";
+                    echo "</div>";
+                }
                 ?>
             </div>
             <!--back to top button----------------------------------------------------------->
