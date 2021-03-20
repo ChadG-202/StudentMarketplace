@@ -168,10 +168,10 @@ if (isset($_POST['upload'])) {
       
           <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required maxlength="32" pattern="[a-zA-Z0-9]+$">
+            <input type="text" placeholder="Enter Username" name="uname" required minlength="8" maxlength="32" pattern="[a-zA-Z0-9]+$">
       
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required maxlength="32" pattern="[a-zA-Z0-9]+$">
+            <input type="password" placeholder="Enter Password" name="psw" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*]).{8,}">
               
             <button type="submit" name="upload">Login</button>
             <label>

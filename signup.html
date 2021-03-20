@@ -14,9 +14,9 @@
     <div id="signup_page_wrapper">
         <h1>Sign Up</h1>
         <form autocomplete="off" action="signup.php" method="post" enctype="multipart/form-data">
-            <input type="text" autocomplete="off" placeholder="Forename" maxlength="32" pattern="[a-zA-Z]+$" 
+            <input type="text" autocomplete="off" placeholder="Forename" minlength="3" maxlength="32" pattern="[a-zA-Z]+$" 
             title="Must have [Forename] no numbers or symbols" required name="Forename">
-            <input type="text" autocomplete="off" placeholder="Surname" maxlength="32" pattern="[a-zA-Z]+$" 
+            <input type="text" autocomplete="off" placeholder="Surname" minlength="3" maxlength="32" pattern="[a-zA-Z]+$" 
             title="Must have [Surname] no numbers or symbols" required name="Surname">
             <input type="date" autocomplete="off" placeholder="DOB" required name="DOB" min="1920-05-11">
             <input type="text" autocomplete="off" placeholder="Address Line 1" maxlength="50" pattern="[0-9]+ [a-zA-Z]+ [a-zA-Z]+$" 
@@ -27,10 +27,10 @@
             title="Must have [Postcode] Formatted:[LLN(N) NLL]" required name="PostCode">
             <input type="email" autocomplete="off" placeholder="E-mail" maxlength="50" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
             title="Must fit format [characters@characters.domain]" required name="Email">
-            <input type="text" autocomplete="off" placeholder="Username" maxlength="32" pattern="[a-zA-Z0-9]+$" 
+            <input type="text" autocomplete="off" placeholder="Username" minlength="8" maxlength="32" pattern="[a-zA-Z0-9]+$" 
             title="Must have [Only numbers and characters]" required name="Username">
-            <input type="password" autocomplete="off" placeholder="Password" maxlength="32" pattern="[a-zA-Z0-9]+$" 
-            title="Must have [Only numbers and characters]" required name="Password">
+            <input type="password" autocomplete="off" placeholder="Password" minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*]).{8,}" 
+            title="Must have at least[2 Capital letters, 2 numbers, 3 lowercase letters and 1 special character]" required name="Password">
             <input type="submit" name="submit" value="Send">
         </form>
     </div>
