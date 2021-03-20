@@ -70,7 +70,19 @@ on a range of products
 which is required for a market place
 
 # References:
-
+- Fortune, B. (2013) How to rename uploaded file before saving it into a directory?. Available at:
+https://stackoverflow.com/questions/18705639/how-to-rename-uploaded-file-before-saving-it-into-a-directory#:~:text=You%20can%20simply%20change%20the,the%20second%20parameter%20of%20move_uploaded_file%20.&text=Use-,%24temp%20%3D%20explode(%22.%22%2C%20%24_FILES%5B,round(microtime(true))%20.
+(Accessed at: 12 March 2021)
+- Iconfinder (2021). Available at: https://www.iconfinder.com/social-media-icons (Accessed at: 19 March 2021)
+- Melvine, A. (2016) How to upload image to MySQL database and display it using php. Available at: https://www.youtube.com/watch?v=Ipa9xAs_nTg
+(Accessed at: 2 March 2021)
+- PHP (2021) openssl_encrypt. Available at: https://www.php.net/openssl_encrypt (Accessed: 20 March 2021)
+- Unsplash (2021). Available at: https://unsplash.com/ (Accessed at: 6 March 2021)
+- W3School (2021) CSS Forms. Avaiable at: https://www.w3schools.com/css/css_form.asp (Accessed at: 10 March 2021)
+- W3School (2021) How TO - Login Form. Available at: https://www.w3schools.com/howto/howto_css_login_form.asp (Accssed at: 8 March 2021)
+- W3School (2021) How TO - Scroll Back To Top Button. Available at: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp (Accessed at: 20 March 2021)
+- W3School (2021) How TO - Search Bar. Available at: https://www.w3schools.com/howto/howto_css_searchbar.asp (Accessed at: 7 March 2021)
+- W3School (2021) How TO - Password Validation. Available at: https://www.w3schools.com/howto/howto_js_password_validation.asp (Accessed at: 24 March 2021)
 
 # Made by 
 Chad Garratt, Oscar Miles, Constandinos Kotsis, Phil Romanovskiy, John Kola-Fabiyi.
