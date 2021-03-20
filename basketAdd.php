@@ -11,7 +11,7 @@ $ProductCost = $_SESSION['ProductCost'];
 
 $query=mysqli_query($dbconnect, "SELECT * FROM basket WHERE CusID = $CusID AND SellID = $SellID");
 
-//if in basket take them there otherwise add to basket
+//if in basket take them to location otherwise add to basket
 if($row = mysqli_fetch_array($query)){
     header('Location: basket.php'); 
 }else{

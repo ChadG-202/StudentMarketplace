@@ -35,7 +35,4 @@ if(mysqli_num_rows($query) > 0){
     header('Location: index.php'); 
 }
 
-//check username meets criteria
-//check if password meets criteria
-
 ?>
