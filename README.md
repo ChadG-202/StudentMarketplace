@@ -23,10 +23,10 @@ this forces a user to generate a strong, secure password.
 - If wrong password is used it will say 'wrong password'
 - If correct it will display 'user logged in'
 # Sell
-- A user can sell and item by completing the sell form
+- A user can sell an item by completing the sell form
 - All inputs are validated
 - The product image used at submission has its name changed to a random string to prevent duplicate 
-items saved with the same name, the images are stored in a file directory and the file path is 
+items being saved, the images are stored in a file directory and the file path is 
 stored in the database to help reduce database size
 # Home Page
 - Easily accessible search bar to look for products
