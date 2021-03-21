@@ -6,7 +6,7 @@ at the University of Brighton can buy and sell items at an affordable price.
 # Target Market
 This website is aimed at students between the ages of 18 and 30.
 
-# -------------------KEY POINTS-----------------------
+# ---------------------KEY POINTS-------------------------
 # Signup
 - Users are able to signup, their data will be encrypted and stored in a database
 - The signup form has validation on each component, 
