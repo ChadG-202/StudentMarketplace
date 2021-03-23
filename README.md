@@ -67,6 +67,9 @@ this was criteria we were set as students view websites on a range of products
 - Primary keys are auto-incremented meaning duplicates will never occur and allow for a large amount of entities to be stored, 
 which is required for a market place
 
+# Video of site
+https://www.youtube.com/watch?v=gV4yQ_YWmPA
+
 # References:
 - Fortune, B. (2013) How to rename uploaded file before saving it into a directory?. Available at:
 https://stackoverflow.com/questions/18705639/how-to-rename-uploaded-file-before-saving-it-into-a-directory#:~:text=You%20can%20simply%20change%20the,the%20second%20parameter%20of%20move_uploaded_file%20.&text=Use-,%24temp%20%3D%20explode(%22.%22%2C%20%24_FILES%5B,round(microtime(true))%20.
