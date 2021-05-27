@@ -1,5 +1,5 @@
 # StudentMarketplace
-This is the coursework submitted to the CI536 - Integrated Group Project
+This is the coursework submitted to the CI536 - Integrated Group Project.
 This website aims to provide a local and convenient place students 
 at the University of Brighton can buy and sell items at an affordable price.
 
