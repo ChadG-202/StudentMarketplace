@@ -1,4 +1,16 @@
 <?php
-//database connection '178.128.37.54', 'cg731_student_marketplace', '3306', 'cg731_cg731', 'Ricyin7e'
-$dbconnect=mysqli_connect('localhost', 'root', '', 'student_marketplace');
+//connection details
+$servername = "sql207.epizy.com";
+$username = "epiz_31913025";
+$password = "zqKPW4yRLbXcnE"; 
+$db="epiz_31913025_student_marketplace";     
+
+//connection query
+$mysqli = new mysqli($servername, $username,$password,$db);
+
+// check connection 
+if ($mysqli->connect_errno) {
+    printf("Connect failed why oh why: %s\n", $mysqli->connect_error);
+    exit();
+}
 ?>
